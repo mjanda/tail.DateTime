@@ -1173,7 +1173,7 @@
          */
         fetchDate: function(date){
             date = parse(date || false) || this.view.date;
-            var inp = this.dt.querySelectorAll("input[type=number]");
+            var inp = this.dt.querySelectorAll("input[type=text]");
             if(inp && inp.length == 3){
                 date.setHours(inp[0].value || 0, inp[1].value || 0, inp[2].value || 0, 0);
             }

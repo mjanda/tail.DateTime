@@ -826,9 +826,6 @@
                 inp[i].addEventListener("input", function(ev){
                     self.handleTime.call(self, this);
                 });
-                inp[i].addEventListener("change", function(ev){
-                    self.handleTime.call(self, this);
-                });
                 inp[i].addEventListener("keydown", function(ev){
                     var key = event.keyCode || event.which || 0;
                     if(key === 38 || key === 40){
@@ -872,9 +869,6 @@
                     (time.querySelector("input[data-input=minutes]") || {value: 0}),
                     (time.querySelector("input[data-input=seconds]") || {value: 0})
                 ];
-            
-            console.log("[tdt] time before: ", time);
-            
             this.selectTime(
                 parseInt(time[0].value) + (this.ampm? 12: 0),
                 parseInt(time[1].value),
@@ -889,8 +883,6 @@
             } else {
                 time[0].value = this.view.date.getHours();
             }
-
-            console.log("[tdt] time after: ", time);
         },
 
         /*
@@ -1337,6 +1329,7 @@
             this.e.value = this.convertDate(this.select, f.join(" "));
             this.e.setAttribute("data-value", this.select.getTime());
             this.switchView("days");
+            this.renderTimePicker(this.dt);
             return this.trigger("change");
         },
         selectTime: function(H, I, S){

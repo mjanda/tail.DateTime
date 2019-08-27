@@ -872,6 +872,9 @@
                     (time.querySelector("input[data-input=minutes]") || {value: 0}),
                     (time.querySelector("input[data-input=seconds]") || {value: 0})
                 ];
+            
+            console.log("[tdt] time before: ", time);
+            
             this.selectTime(
                 parseInt(time[0].value) + (this.ampm? 12: 0),
                 parseInt(time[1].value),
@@ -886,6 +889,8 @@
             } else {
                 time[0].value = this.view.date.getHours();
             }
+
+            console.log("[tdt] time after: ", time);
         },
 
         /*

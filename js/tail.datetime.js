@@ -1203,7 +1203,9 @@
             this.e.value = this.convertDate(this.select, f.join(" "));
             this.e.setAttribute("data-value", this.select.getTime());
             this.switchView("days");
-            this.renderTimePicker(this.dt);
+            if (!this.dt.contains(document.activeElement)) {
+                this.renderTimePicker(this.dt);
+            }
             return this.trigger("change");
         },
         selectTime: function(H, I, S){

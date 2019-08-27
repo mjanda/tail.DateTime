@@ -826,6 +826,9 @@
                 inp[i].addEventListener("input", function(ev){
                     self.handleTime.call(self, this);
                 });
+                inp[i].addEventListener("change", function(ev){
+                    self.handleTime.call(self, this);
+                });
                 inp[i].addEventListener("keydown", function(ev){
                     var key = event.keyCode || event.which || 0;
                     if(key === 38 || key === 40){

@@ -707,9 +707,7 @@
                     + '<span class="label" data-action="view" data-view="up"></span>'
                     + '<span class="action action-next" data-action="next"></span>';
             } else if(this.con.timeFormat){
-                ins = '<span class="action action-submit" data-action="submit"></span>'
-                    + '<span class="label"></span>'
-                    + '<span class="action action-cancel" data-action="cancel"></span>';
+                ins = '<span class="label"></span>';
             }
             dt.innerHTML = (ins)? '<div class="calendar-actions">' + ins + '</div>': '';
 

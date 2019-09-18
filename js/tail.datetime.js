@@ -480,11 +480,16 @@
                 x = parseInt(b.marginLeft)+parseInt(b.marginRight),
                 y = parseInt(b.marginTop) +parseInt(b.marginBottom),
                 p = {
-                    top:    this.e.getBoundingClientRect().top  + w.scrollY,
-                    left:   this.e.getBoundingClientRect().left - w.scrollX,
+                    top:    this.e.getBoundingClientRect().top,
+                    left:   this.e.getBoundingClientRect().left,
                     width:  this.e.offsetWidth  || 0,
                     height: this.e.offsetHeight || 0
                 };
+            // add scroll offset only if the input element is not fixed
+            if (b.getPropertyValue('position') !== 'fixed') {
+                a.p.top  +=  w.scrollY;
+                a.p.left += -w.scrollX;
+            }
 
             // Calc Position
             a.visibility = "hidden";

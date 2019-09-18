@@ -613,8 +613,8 @@
                 };
             // add scroll offset only if the input element is not fixed
             if (b.getPropertyValue('position') !== 'fixed') {
-                a.p.top  +=  w.scrollY;
-                a.p.left += -w.scrollX;
+                p.top  +=  w.scrollY;
+                p.left += -w.scrollX;
             }
 
             // Calc Position

@@ -611,10 +611,18 @@
                     width:  this.e.offsetWidth  || 0,
                     height: this.e.offsetHeight || 0
                 };
+
             // add scroll offset only if the input element is not fixed
             if (b.getPropertyValue('position') !== 'fixed') {
                 p.top  +=  w.scrollY;
                 p.left += -w.scrollX;
+            }
+
+            // and subtract the absolute position of its parent element
+            const dtParent = this.dt.parentElement;
+            if (dtParent) {
+                p.top  += -dtParent.getBoundingClientRect().top;
+                p.left += -dtParent.getBoundingClientRect().left;
             }
 
             // Calc Position

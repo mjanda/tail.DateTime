@@ -495,9 +495,9 @@
             // and subtract the absolute position of its parent element
             var dtParent = this.dt.parentElement;
             if (dtParent) {
-                var dtParentStyle = w.getComputedStyle(dtParent);
-                p.top  += -dtParentStyle.top;
-                p.left += -dtParentStyle.left;
+                var dtParentBR = dtParent.getBoundingClientRect();
+                p.top  += -dtParentBR.top;
+                p.left += -dtParentBR.left;
             }
 
             // Calc Position

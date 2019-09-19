@@ -493,12 +493,12 @@
             }
 
             // and subtract the absolute position of its parent element
-            // var dtParent = this.dt.parentElement;
-            // if (dtParent) {
-            //     var dtParentBR = dtParent.getBoundingClientRect();
-            //     p.top  += dtParentBR.top;
-            //     p.left += dtParentBR.left;
-            // }
+            var dtParent = this.dt.parentElement;
+            if (dtParent) {
+                var dtParentBR = dtParent.getBoundingClientRect();
+                p.top  += -dtParentBR.top + dpParent.scrollTop;
+                p.left += -dtParentBR.left - dpParent.scrollLeft;
+            }
 
             // Calc Position
             a.visibility = "hidden";

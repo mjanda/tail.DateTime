@@ -612,17 +612,11 @@
                     height: this.e.offsetHeight || 0
                 };
 
-            // add scroll offset only if the input element is not fixed
-            if (b.getPropertyValue('position') !== 'fixed') {
-                p.top  +=  w.scrollY;
-                p.left += -w.scrollX;
-            }
-
-            // and subtract the absolute position of its parent element
+            // if the datepicker has a parent element, subtract the parents position from the datepicker position
             var dtParent = this.dt.parentElement;
             if (dtParent) {
                 var dtParentBR = dtParent.getBoundingClientRect();
-                p.top  += -dtParentBR.top + dtParent.scrollTop;
+                p.top  += -dtParentBR.top  + dtParent.scrollTop;
                 p.left += -dtParentBR.left - dtParent.scrollLeft;
             }
 

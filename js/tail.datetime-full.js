@@ -616,8 +616,8 @@
             var dtParent = this.dt.parentElement;
             if (dtParent) {
                 var dtParentBR = dtParent.getBoundingClientRect();
-                p.top  += -dtParentBR.top  + dtParent.scrollTop;
-                p.left += -dtParentBR.left - dtParent.scrollLeft;
+                p.top  += -dtParentBR.top  + dtParent.scrollTop  + dtParent.offsetTop;
+                p.left += -dtParentBR.left - dtParent.scrollLeft + dtParent.offsetLeft;
             }
 
             // Calc Position

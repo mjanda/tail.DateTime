@@ -482,7 +482,9 @@
                     self.callback.call(self, event);
                 });
                 d.addEventListener("keyup", function(event){
-                    if(self.dt.contains(event.target)){
+                    if ((event.keyCode || event.which) == 9) {
+                        self.close.call(self);
+                    } else if(self.dt.contains(event.target)){
                         self.callback.call(self, event);
                     }
                 });
